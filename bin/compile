@@ -6,16 +6,16 @@ ENV_DIR=$3
 
 #
 # install the unixodbc driver first as it has some files that
-# are needed for snowflake odbc
+# are needed for Snowflake ODBC
 #
 echo '-----> Installing unix ODBC'
-curl http://www.unixodbc.org/unixODBC-2.3.4.tar.gz | tar xvz
-./unixODBC-2.3.4/install-sh
+curl http://www.unixodbc.org/unixODBC-2.3.4.tar.gz | tar xvz --directory $TMPDIR
+$TMPDIR/unixODBC-2.3.4/install-sh
 
 #
 # now install the Snowflake ODBC
 #
 echo "-----> Installing Snowflake ODBC driver into $BUILD_DIR"
-tar -xzf support/snowflake_linux_x8664_odbc.tgz --directory "$BUILD_DIR"
-cd $BUILD_DIR/snowflake_odbc
-./unixodbc_setup.sh
+tar -xzf support/snowflake_linux_x8664_odbc.tgz --directory "$TMPDIR"
+cd $TMPDIR/snowflake_odbc
+$TMPDIR/snowflake_odbc/unixodbc_setup.sh
