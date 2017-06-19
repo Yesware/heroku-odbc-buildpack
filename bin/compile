@@ -1,8 +1,6 @@
 #!/bin/sh
 
 BUILD_DIR=$1
-CACHE_DIR=$2
-ENV_DIR=$3
 
 #
 # install the unixodbc driver first as it has some files that
