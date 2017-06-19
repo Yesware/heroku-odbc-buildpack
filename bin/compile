@@ -4,7 +4,11 @@ BUILD_DIR = $1
 CACHE_DIR = $2
 ENV_DIR = $3
 
+echo 'Dumping the Environment'
+
 echo 'Validating the \"BUILD_DIR\"'
+set
+env
 $BUILD_DIR_TRIMMED="$(sed -e 's/[[:space:]]*$//' <<<${FOO})"
 if [$BUILD_DIR_TRIMMED == ""]; then
     echo "Empty BUILD_DIR.  Using $PWD"
