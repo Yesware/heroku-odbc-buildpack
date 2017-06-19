@@ -1,8 +1,8 @@
 #!/bin/sh
 
-BUILD_DIR = $1
-CACHE_DIR = $2
-ENV_DIR = $3
+BUILD_DIR=$1
+CACHE_DIR=$2
+ENV_DIR=$3
 
 echo 'Dumping the Environment'
 echo "$1 = " $1
@@ -12,21 +12,18 @@ ehco "$3 = " $3
 set
 env
 
-echo 'Validating the \"BUILD_DIR\"'
-
-$BUILD_DIR_TRIMMED="$(sed -e 's/[[:space:]]*$//' <<<${FOO})"
-if [$BUILD_DIR_TRIMMED == ""]; then
-    echo "Empty BUILD_DIR.  Using $PWD"
-    BUILD_DIR = $PWD
-fi
-
+#
 # install the unixodbc driver first as it has some files that
 # are needed for snowflake odbc
+#
 echo 'Installing unix ODBC'
 curl http://www.unixodbc.org/unixODBC-2.3.4.tar.gz | tar xvz
 ./unixODBC-2.3.4/install-sh
 
+#
+# now install the Snowflake ODBC
+#
 echo "Installing Snowflake ODBC driver into $BUILD_DIR"
-tar -xzf support/snowflake_linux_x8664_odbc.tgz --directory "$BUILD_DIR_TRIMMED"
-cd ./snowflake_odbc
+tar -xzf support/snowflake_linux_x8664_odbc.tgz --directory "$BUILD_DIR"
+cd $BUILD_DIR/snowflake_odbc
 ./unixodbc_setup.sh
