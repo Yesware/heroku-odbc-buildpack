@@ -8,7 +8,7 @@ BUILD_DIR=$1
 #
 echo '-----> Installing unix ODBC'
 curl http://www.unixodbc.org/unixODBC-2.3.4.tar.gz | tar xvz --directory $BUILD_DIR
-/tmp/unixODBC-2.3.4/install-sh -t $BUILD_DIR
+$BUILD_DIR/unixODBC-2.3.4/install-sh -t $BUILD_DIR
 
 #
 # now install the Snowflake ODBC
