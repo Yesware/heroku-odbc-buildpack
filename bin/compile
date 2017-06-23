@@ -27,10 +27,10 @@ echo 'ls tmp'
 ls $BUILD_DIR
 cd $BUILD_DIR/ruby-odbc-0.99998/
 echo '------> Generating Makefile'
-ruby -C ext extconf.rb --enable-dlopen
+ruby -C ext extconf.rb
 echo '------> Building ruby-odbc'
 make -C ext
 echo '------> Installing ruby-odbc'
-make -C ext install TIMESTAMP_DIR=$BUILD_DIR
+make -C ext install RUBYARCHDIR="${BUILD_DIR}/lib/x86_64-linux-gnu"
 
 
