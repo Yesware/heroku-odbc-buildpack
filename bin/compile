@@ -26,7 +26,7 @@ curl http://www.ch-werner.de/rubyodbc/ruby-odbc-0.99998.tar.gz | tar xvz --direc
 echo 'ls tmp'
 ls /tmp
 cd /tmp/ruby-odbc-0.99998/
-ruby -C ext extconf.rb
+ruby -C ext extconf.rb --enable-dlopen
 make -C ext
 make -C ext install
 
