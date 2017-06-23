@@ -35,4 +35,5 @@ make -C ext install RUBYARCHDIR="${BUILD_DIR}/lib/x86_64-linux-gnu"
 
 ldd $BUILD_DIR/lib/x86_64-linux-gnu/odbc.so
 
-
+echo '------> Installing ActiveRecord ODBC Adapter'
+gem install -r activerecord-odbc-adapter --include-dependencies
