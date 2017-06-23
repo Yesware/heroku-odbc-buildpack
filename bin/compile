@@ -31,6 +31,6 @@ ruby -C ext extconf.rb --enable-dlopen
 echo '------> Building ruby-odbc'
 make -C ext
 echo '------> Installing ruby-odbc'
-make -C ext install TIMESTAMP_DIR=$BUILD_DIR
+make -C ext install
 
 
