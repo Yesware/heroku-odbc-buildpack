@@ -22,10 +22,10 @@ cd /tmp/snowflake_odbc
 # now install the ruby-odbc Gem
 #
 echo '------> Installing ruby-odbc Gem'
-curl http://www.ch-werner.de/rubyodbc/ruby-odbc-0.99998.tar.gz | tar xvz --directory "/tmp"
+curl http://www.ch-werner.de/rubyodbc/ruby-odbc-0.99998.tar.gz | tar xvz --directory $BUILD_DIR
 echo 'ls tmp'
-ls /tmp
-cd /tmp/ruby-odbc-0.99998/
+ls $BUILD_DIR
+cd $BUILD_DIR/ruby-odbc-0.99998/
 echo '------> Generating Makefile'
 ruby -C ext extconf.rb --enable-dlopen
 echo '------> Building ruby-odbc'
