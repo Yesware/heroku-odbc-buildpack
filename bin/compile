@@ -17,3 +17,14 @@ echo "-----> Installing Snowflake ODBC driver into $BUILD_DIR"
 tar -xzf support/snowflake_linux_x8664_odbc.tgz --directory "/tmp"
 cd /tmp/snowflake_odbc
 /tmp/snowflake_odbc/unixodbc_setup.sh
+
+#
+# now install the ruby-odbc Gem
+#
+curl http://www.ch-werner.de/rubyodbc/ruby-odbc-0.99998.tar.gz | tar xvz -- directory "/tmp"
+cd /tmp/ruby-odbc-0.99998/
+ruby -C ext extconf.rb
+make -C ext
+make -C ext install
+
+
