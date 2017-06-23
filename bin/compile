@@ -27,7 +27,7 @@ echo 'ls tmp'
 ls $BUILD_DIR
 cd $BUILD_DIR/ruby-odbc-0.99998/
 echo '------> Generating Makefile'
-ruby -C ext extconf.rb
+ruby -C ext extconf.rb --enable-dlopen
 echo '------> Building ruby-odbc'
 make -C ext
 echo '------> Installing ruby-odbc'
