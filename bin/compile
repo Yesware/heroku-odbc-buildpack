@@ -44,5 +44,5 @@ gem install activerecord-odbc-adapter -i $BUILD_DIR
 #
 # now install the ActiveRecord ODBC Adapter Gem
 #
-echo '------> Installing Localytics ODBC Adapter' -i $BUILD_DIR
-gem install odbc_adapter
+echo '------> Installing Localytics ODBC Adapter'
+gem install odbc_adapter -i $BUILD_DIR
